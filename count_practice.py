@@ -24,7 +24,7 @@ class Deck:
         random.shuffle(self.cards)
 
     def deal_cards(self,amount_to_deal_manually = False,time_per_deal = 5,silence=False):
-       """ deals cards one at a time, it will choose a random amount to deal if not specified, it also has delays on how long it should display each card. It will clear the screen once all cards are dealt """
+        """ deals cards one at a time, it will choose a random amount to deal if not specified, it also has delays on how long it should display each card. It will clear the screen once all cards are dealt """
         amount_to_deal = random.randint(0,len(self.cards))
         if amount_to_deal_manually != False:
             amount_to_deal = amount_to_deal_manually
