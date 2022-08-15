@@ -3,7 +3,13 @@ from itertools import product
 import time
 import os
 import sys
-clear = lambda: os.system('cls')
+import platform
+
+
+platform = platform.system()
+clearcommand = "cls" if platform == "Windows" else "clear" if platform == "Linux" else input("Sorry but we could not recognise your platform. Please enter your systems equivalent of \"clear\" from linux:")
+clear = lambda: os.system(clearcommand)
+
 possible_card_values = ["A",2,3,4,5,6,7,8,9,10]
 list_of_suits = ["H","S","C","D"]
 list_of_values = ["A","2","3","4","5","6","7","8","9","10","J","K","Q"]
@@ -23,7 +29,7 @@ class Deck:
         """ shuffles deck randomly """
         random.shuffle(self.cards)
 
-    def deal_cards(self,amount_to_deal_manually = False,time_per_deal = 5,silence=False):
+    def deal_cards(self,amount_to_deal_manually = False,time_per_deal = 6,silence=False):
         """ deals cards one at a time, it will choose a random amount to deal if not specified, it also has delays on how long it should display each card. It will clear the screen once all cards are dealt """
         amount_to_deal = random.randint(0,len(self.cards))
         if amount_to_deal_manually != False:
@@ -36,6 +42,7 @@ class Deck:
                 print(f"Dealing the card {card_dealt}")
             time.sleep(time_per_deal)
         print("OVER")
+        time.sleep(time_per_deal)
         clear()
 
     def convert_card_to_value(self,card):
