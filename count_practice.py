@@ -29,7 +29,7 @@ class Deck:
         """ shuffles deck randomly """
         random.shuffle(self.cards)
 
-    def deal_cards(self,amount_to_deal_manually = False,time_per_deal = 6,silence=False):
+    def deal_cards(self,amount_to_deal_manually = False,time_per_deal = 5,silence=False):
         """ deals cards one at a time, it will choose a random amount to deal if not specified, it also has delays on how long it should display each card. It will clear the screen once all cards are dealt """
         amount_to_deal = random.randint(0,len(self.cards))
         if amount_to_deal_manually != False:
@@ -148,7 +148,7 @@ class Game:
 
 # GAME START
 #Players chooses a mode and amount of decks
-MODE = input("What mode would you like, normal 👎 or genius (g) or super genius (sg)? \n normal uses the high low system for counting cards while genius expects you to say how many of each value are left in the deck and supe genius expexts you to write all remaining cards in the deck \n")
+MODE = input("What mode would you like, normal 👎 or genius (g) or super genius (sg)? \n normal uses the high low system for counting cards while genius expects you to say how many of each value are left in the deck and supe genius expects you to write all remaining cards in the deck \n")
 if MODE in ["g","n","sg"]:
     deck_num = int(input("how many decks would you like to play? "))
     game = Game(MODE,deck_num)
